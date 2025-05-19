@@ -30,6 +30,7 @@ npm run build-ignore-ts（跳过ts检查，不推荐！）
     - git add .
     - git commit -m "update"
     - git push
+    - *如无权限，可添加协作者，其它问题请自行百度*
 
 ## 首次clone到本地，如何运行？
 1. 下载nvm（node version management），下载地址：https://github.com/coreybutler/nvm-windows/releases，具体安装方式可百度
