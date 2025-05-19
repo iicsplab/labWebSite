@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sheets API Quickstart</title>
+  <meta charset="utf-8" />
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.7.1/axios.js"></script>
+  <style>
+    .container {
+      width: 200px;
+      /* 限制容器宽度以触发断行 */
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .english-text {
+      word-break: break-all;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="english-text" lang="en">
+      ThisIsALongEnglishWordThatNeedsToBeHyphenatedWhenBreaking.
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    const API_KEY = 'AIzaSyAlZb6daofKr-J83Dv21uMTPxqMjZgr_vM'; // 替换为你的Google API密钥
+    const SPREADSHEET_ID = '15IYsMCgLpw5_tkFXnTkgPSvZgOtq-c4WPJQY49SEk-Q';//替换成你的表格的ID
+
+    // 异步函数，用于获取表格名称
+    async function fetchSheetNames() {
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}?key=${API_KEY}`;
+      try {
+        const response = await axios.get(url);
+        const data = response.data;
+
+        if (data.error) {
+          throw new Error(`API错误！信息：${data.error.message}`);
+        }
+
+        return data.sheets.map(sheet => sheet.properties.title);
+      } catch (error) {
+        let errorMessage = '';
+
+        if (error.response) {
+          // 服务器响应了非 2xx 状态码
+          errorMessage = `HTTP错误！状态：${error.response.status}, 信息：${error.response.data.error.message}`;
+        } else if (error.request) {
+          // 请求已发出但无响应
+          errorMessage = '网络请求无响应';
+        } else {
+          // 其他配置错误
+          errorMessage = `请求配置错误：${error.message}`;
+        }
+
+        console.error('获取表格名称时出错：', errorMessage);
+      }
+    }
+
+    // fetchSheetNames().then(val => {
+    //   console.log("val: ", val);
+    // }, reason => {
+    //   console.log("reason: ", reason);
+    // })
+
+    async function fetchSheetData(sheetName) {
+      // const range = `${sheetName}!A1:Z100000`;
+      const range = encodeURIComponent(`${sheetName}!A1:Z100000`);
+      console.log('range:', range);
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${range}?key=${API_KEY}`;
+
+      try {
+        const response = await axios.get(url);
+        const data = response.data;
+
+        // 保留 API 业务错误检查（如 200 响应中的错误信息）
+        if (data.error) {
+          throw new Error(`API错误！信息：${data.error.message}`);
+        }
+
+        return data.values;
+      } catch (error) {
+        let errorDetails = '未知错误';
+
+        if (axios.isAxiosError(error)) {
+          if (error.response) {
+            // 服务器响应了非 2xx 状态码
+            errorDetails = `HTTP错误！状态：${error.response.status}，信息：${error.response.data?.error?.message || '无错误详情'}`;
+          } else if (error.request) {
+            // 请求已发出但无响应
+            errorDetails = `网络请求无响应（${error.message}）`;
+          } else {
+            // 请求配置错误
+            errorDetails = `请求配置错误：${error.message}`;
+          }
+        } else {
+          // 非 Axios 错误（如手动抛出的业务错误）
+          errorDetails = error?.message;
+        }
+
+        console.error(`获取【${sheetName}】工作表数据时出错：`, errorDetails);
+      }
+    }
+
+
+    // fetchSheetData('2024秋季学期?/').then(val => {
+    //   console.log("val: ",val);
+    // },reason => {
+    //   console.log("reason: ", reason);
+    // })
+
+    // axios.get('https://api.github.com/repos/Zhijie0/seminarInterface/contents/seminarInfo.json', {
+    //   "message": "update from  xx",
+    //   "content": "WyIhIiwi55u45b+X5p2wIl0=",
+    //   // "sha": "9f7c45246f665d652eaaddf72c1e57883eece99e"
+    // }, {
+    //   headers: {
+    //     'Authorization': 'token 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'
+    //   }
+    // }).then(response => {
+    //   console.log(response);
+    // }, err => {
+    //   console.log(err);
+    // })
+
+    // function stringToBase64(str) {
+    //   // 适用于任何ASCII 字符、Unicode 字符等
+    //   const encoder = new TextEncoder();
+    //   const uint8Array = encoder.encode(str);
+    //   const uint8ArrayAsArray = Array.from(uint8Array);
+    //   return btoa(String.fromCharCode.apply(null, uint8ArrayAsArray));
+    // }
+    // function base64ToString(base64) {
+    //   // 将 Base64 解码为二进制字符串
+    //   const binaryString = atob(base64);
+
+    //   // 将二进制字符串转换为字节数组
+    //   const bytes = new Uint8Array(binaryString.length);
+    //   for (let i = 0; i < binaryString.length; i++) {
+    //     bytes[i] = binaryString.charCodeAt(i);
+    //   }
+
+    //   // 将字节数组解码回原始字符串
+    //   return new TextDecoder().decode(bytes);
+    // }
+
+    // // 示例使用：
+    // const newContent = 'xiang/?-=的分信号~·、*#$%^&&';
+    // const base64String = stringToBase64(newContent);
+    // console.log(base64String);
+    // console.log(base64ToString(base64String));
+
+    function rot13(str) { // LBH QVQ VG!
+      // 请把你的代码写在这里
+      var newstr = [];
+      for (var i = 0; i < str.length; ++i) {
+        if (str.charCodeAt(i) < 65 || str.charCodeAt(i) > 90) {
+          newstr.push(str[i]);
+        } else if (str.charCodeAt(i) <= 77) {
+          newstr.push(String.fromCharCode(str.charCodeAt(i) + 13));
+        } else {
+          newstr.push(String.fromCharCode(str.charCodeAt(i) - 13));
+        }
+      }
+      return newstr.join('');
+    }
+
+    // let res = rot13("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");  // 你可以修改这一行来测试你的代码
+    // console.log(res);
+    // console.log(rot13(res));
+    // console.log(JSON.parse('{}'));
+
+    // console.log(typeof NaN);
+    // const str = 'https://www.bilibili.com/video/BV1ZB4y1Z7o8?spm_id_from=333.788.videopod.episodes&vd_source=6d182e9f824269b892550c06c33dd927&p=4';
+    // const res = str.match(/(?<=(&|\?))[^&]+/g);
+    // console.log(res);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+.top {
+    background-color: white;
+    // border: 1px solid black;
+    width: 100%;
+    
+    position: fixed;
+    top: 0px;
+    z-index: 999;
+    transition: all .3s ease;
+
+    &-hidden {
+        margin-top: -114px;
+        // transition: all .3s ease;
+    }
+
+    &-enlarge {
+        background-color: transparent;
+        // transition: all .3s ease;
+    }
+
+    &-container {
+        // height: 114px;
+        // height: 95px; // scrollTop不为0时
+        padding: 8px 0;
+        display: flex;
+        align-items: center;
+        
+
+        &-logo {
+            padding: 5px 0;
+            margin-right: 16px;
+            
+            &-img {
+                
+                height: 69px;
+                vertical-align: top;
+                cursor: pointer;
+                transition: all .4s ease;
+
+                &-enlarge {
+                    height: 88px; // 滚动到顶部时放大
+                }
+            }
+        }
+
+        &-nav {
+            display: flex;
+
+            &-item {
+                padding: 0 30px;
+                cursor: pointer;
+                
+                &:hover {
+                    color: #4C4C4C;
+                }
+            }
+        }
+    }
+}
+

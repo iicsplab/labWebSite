@@ -1,0 +1,116 @@
+.app {
+    &-layout {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        // background-color: #F2F7FB;
+    }
+
+    &-content {
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    &-lang-select {
+        position: fixed;
+        top: 100px;
+        left: 100px;
+        
+    }
+}
+.ant-select-selector{
+    width: 150px !important;
+}
+
+// 全局可用样式：
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    transition: all 0.5s ease;
+    // border: 1px solid red;
+
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+
+    @media (max-width: 992px) {
+        max-width: 720px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 540px;
+    }
+
+    @media (max-width: 576px) {
+        max-width: 100%;
+    }
+}
+
+// .header-font {
+//     color: #333;
+//     font: 40px 'Poppins-bold';
+//     font-weight: 700;
+// }
+
+// .poppins-font {
+//     font-family: 'Poppins';
+//     color: #333;
+// }
+
+// .poppins-bold {
+//     font-family: 'Poppins-bold';
+//     color: #333;
+// }
+
+.font-red {
+    // color: #A31F34;
+    color: #B32F44 !important;
+}
+
+.font-blue {
+    // color: #006CB5;
+    color: #0080CC !important;
+}
+
+.font-underline {
+    text-decoration: underline !important;
+}
+
+.font-strong {
+    font-weight: bold !important;
+}
+
+.app-label {
+    background-color: #F3F3F3;
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+
+    &:hover {
+        background-color: #B32F44;
+        color: white;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(80px);
+    }
+
+    // 75% {
+    //     opacity: 1;
+    //     transform: translate(-20px);
+    // }
+    to {
+        opacity: 1;
+    }
+}

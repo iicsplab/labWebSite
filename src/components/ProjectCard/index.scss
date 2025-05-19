@@ -1,0 +1,106 @@
+.home-project-card {
+    width: 100%;
+    // border: 1px solid black;
+    // background-color: #ffffff88;
+    // min-height: 300px;
+
+    &-imgbox {
+        height: 250px;
+        box-shadow: 1px 1px 4px 0 #0005;
+        border-radius: 20px;
+        transition: transform 0.5s ease;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &-article {
+        padding: 15px 0 5px;
+
+        &-title {
+
+            line-height: 1.45;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            // display: inline-block;
+
+            &:hover {
+                color: #B32F44;
+            }
+        }
+
+        &-info {
+            font-size: 18px;
+            padding-left: 10px;
+        }
+    }
+
+    &-simpAbs {
+        line-height: 28px;
+        margin: 5px 0;
+        // text-align: justify;
+        // word-break: break-all;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+    }
+
+    &-modal {
+
+        &-body {
+            // border: 1px solid black;
+            margin: 20px 20px 20px;
+            text-align: center;
+
+            &-imgbox {
+                // text-align: center;
+
+                &-img {
+                    width: 75%;
+                    // max-height: 500px;
+                }
+            }
+
+            &-title {
+                font-size: 24px;
+                line-height: 1.5;
+                margin: 20px 0 10px;
+            }
+
+            &-info {
+                font-size: 18px;
+            }
+
+            &-authors {
+                margin: 10px 0 20px;
+            }
+
+            &-detailAbs {
+                line-height: 28px;
+                margin: 10px 0;
+                text-align: justify;
+                color: black !important;
+            }
+        }
+
+        &-footer {
+            text-align: center;
+            margin-bottom: 20px;
+
+            &-btn {
+                line-height: 34px;
+            }
+        }
+    }
+}

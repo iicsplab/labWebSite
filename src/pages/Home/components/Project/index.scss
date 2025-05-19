@@ -1,0 +1,47 @@
+.home-project {
+    // border: 1px solid black;
+    margin-bottom: 50px;
+
+    &-header {
+        padding: 10px 0 20px;
+    }
+
+    &-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 10px;
+
+        &-card {
+            width: 47%;
+            // background-color: gray;
+            margin-bottom: 40px;
+        }
+    }
+
+    &-moreButton {
+        text-align: center;
+
+        &-text {
+            display: inline-block;
+            height: 44px;
+            line-height: 44px;
+            padding: 0 20px;
+            background-color: #fafafa;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+
+            &:hover {
+                color: #B32F44;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    .home-project-wrapper-card {
+        width: 100%;
+    }
+}

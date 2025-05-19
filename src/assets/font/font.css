@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "Poppins";
+    src: url('./Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Poppins-bold";
+    src: url('./Poppins-Medium.ttf');
+}
+
+@font-face {
+    font-family: "TimesNewRoman";
+    src: url('./times.ttf');
+}
+
+@font-face {
+    font-family: "TimesNewRoman-bold";
+    src: url('./timesbd.ttf');
+}
+
+@font-face {
+    font-family: "Arial";
+    src: url('./arial.ttf');
+}
+
+@font-face {
+    font-family: "Arial-bold";
+    src: url('./arialbd.ttf');
+}
+
+@font-face {
+    font-family: "MicrosoftYaHei";
+    src: url('./msyh.ttc');
+}
+
+@font-face {
+    font-family: "MicrosoftYaHei-bold";
+    src: url('./msyhbd.ttc');
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url('./Lato-Regular-2.ttf');
+}
+
+@font-face {
+    font-family: "Lato-bold";
+    src: url('./Lato-Bold-7.ttf');
+}
+
+/* https://fontmeme.com/ziti/atkinson-hyperlegible-next-font/#previewtool */
+@font-face {
+    font-family: "AtkinsonHyperlegible";
+    src: url('./AtkinsonHyperlegibleNext-Regular.ttf');
+}
+
+@font-face {
+    font-family: "AtkinsonHyperlegible-bold";
+    src: url('./AtkinsonHyperlegibleNext-Bold.ttf');
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url('./Helvetica.ttf');
+}
+
+@font-face {
+    font-family: "Helvetica-bold";
+    src: url('./Helvetica-Bold.ttf');
+}
