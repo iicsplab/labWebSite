@@ -2,6 +2,7 @@ import { Component } from 'react'
 import './index.scss'
 import { IProps, IState } from './types'
 import { Modal } from "antd";
+import { motion } from 'motion/react'
 
 export default class ProjectCard extends Component<IProps, IState> {
     state = {
@@ -20,9 +21,9 @@ export default class ProjectCard extends Component<IProps, IState> {
         })
     }
 
-    handleClickTitle = (e :any, link: any) => {
+    handleClickTitle = (e: any, link: any) => {
         // 如果link为空或undefined，则阻止默认事件，不跳转到<a>对应的href地址
-        if(!link) e.preventDefault();
+        if (!link) e.preventDefault();
     }
 
     render() {
@@ -39,11 +40,26 @@ export default class ProjectCard extends Component<IProps, IState> {
         const { isModalOpen } = this.state;
         return (
             <div className="home-project-card">
-                <div className="home-project-card-imgbox" onClick={this.handleClickImg}>
+                <motion.div className="home-project-card-imgbox" onClick={this.handleClickImg}
+                    variants={{
+                        opened: { scale: 1 },
+                        closed: { scale: 0.6 }
+                    }}
+                    transition={{
+                        duration: 0.5,
+                        ease: 'easeOut'
+                    }}
+                    whileHover={{
+                        scale: 1.05,
+                        transition: {
+                            duration: 0.25,
+                        }
+                    }}
+                >
                     <img className='home-project-card-imgbox-img' src={imgPath} alt="论文图片" />
-                </div>
+                </motion.div>
                 <div className="home-project-card-article">
-                    <a className='home-project-card-article-title poppins-bold' href={`${link || ''}`} onClick={(e)=>this.handleClickTitle(e, link)}>{title}</a>
+                    <a className='home-project-card-article-title poppins-bold' href={`${link || ''}`} onClick={(e) => this.handleClickTitle(e, link)}>{title}</a>
                     {/* publication前加一个空格，防止标题恰好占满最后一行，导致标题最后一个词和publication一起换行 */}
                     <span className='home-project-card-article-info poppins-font'> {`${publication || ''} ${year || ''}`}</span>
                 </div>
@@ -56,7 +72,7 @@ export default class ProjectCard extends Component<IProps, IState> {
                     centered={true}
                     footer={(
                         <div className='home-project-card-modal-footer'>
-                            <a className="app-label poppins-font home-project-card-modal-footer-btn" href={`${link || ''}`} onClick={(e)=>this.handleClickTitle(e, link)}>more</a>
+                            <a className="app-label poppins-font home-project-card-modal-footer-btn" href={`${link || ''}`} onClick={(e) => this.handleClickTitle(e, link)}>more</a>
                             <a className="app-label poppins-font home-project-card-modal-footer-btn" onClick={this.handleClose}>close</a>
                         </div>
                     )}

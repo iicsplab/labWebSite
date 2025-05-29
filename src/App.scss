@@ -15,10 +15,11 @@
         position: fixed;
         top: 100px;
         left: 100px;
-        
+
     }
 }
-.ant-select-selector{
+
+.ant-select-selector {
     width: 150px !important;
 }
 
@@ -28,7 +29,7 @@
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 15px;
-    transition: all 0.5s ease;
+    transition: width 0.5s ease;
     // border: 1px solid red;
 
     @media (max-width: 1200px) {
@@ -97,13 +98,13 @@
 }
 
 .fadeIn {
-    animation: fadeIn 1s ease;
+    animation: fadeIn 0.5s ease-out;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(80px);
+        transform: translateY(100px);
     }
 
     // 75% {

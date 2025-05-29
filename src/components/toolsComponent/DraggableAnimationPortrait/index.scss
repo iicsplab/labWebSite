@@ -1,0 +1,51 @@
+.draggableAnimationPortrait {
+    &-wrapper {
+        border-radius: 50%;
+        // border: 1px solid black;
+        position: relative;
+        z-index: 0;
+        // &:hover {
+        //     cursor: grab;
+        // }
+        // &:active {
+        //     cursor: grabbing;
+        // }
+
+        &-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        &-tip {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 28px;
+            font-weight: bold;
+            color: #c7f130;
+            pointer-events: none;
+            // transform: translateY(10px);
+            // background-color: gray;
+        }
+    }
+}
+
+.draggableAnimationPortrait-link-hover {
+    cursor: pointer;
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+.draggableAnimationPortrait-nolink-hover {
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
+}

@@ -1,0 +1,15 @@
+.tool-commonButton {
+    display: inline-block;
+    height: 44px;
+    line-height: 44px;
+    padding: 0 20px;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+
+    &:hover {
+        color: #B32F44;
+    }
+}

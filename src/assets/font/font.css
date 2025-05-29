@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: "Plaster";
+    src: url('./Plaster-Regular.ttf');
+}
+
+@font-face {
     font-family: "TimesNewRoman";
     src: url('./times.ttf');
 }

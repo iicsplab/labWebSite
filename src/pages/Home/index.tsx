@@ -4,6 +4,7 @@ import News from './components/News'
 import Project from './components/Project'
 import Members from './components/Members'
 import { baseData } from '@/const/base'
+import DoubleParallaxText from '@/components/toolsComponent/DoubleParallaxText'
 
 export default class Home extends Component {
 
@@ -12,7 +13,7 @@ export default class Home extends Component {
         newsInfo: [],
     }
 
-    
+
 
     render() {
         return (
@@ -44,14 +45,18 @@ export default class Home extends Component {
                         </div>
                     </section>
 
+                    <DoubleParallaxText
+                        text={['IIC SPLAB IIC SPLAB', 'REAL SP LAB']}
+                    />
+
                     {/* 首页new区 */}
                     <News />
 
                     {/* 首页Project区 */}
                     <Project />
 
-                    
-                    <Members/>
+
+                    <Members />
                 </div>
             </div >
         )

@@ -34,22 +34,18 @@
             // margin-bottom: 70px;
 
             &-li {
-                text-align: center;
+                // text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 width: 24%;
                 // border: 1px solid black;
                 margin-bottom: 50px;
                 flex-grow: 1;
 
-                &-photo {
-                    width: 148px;
-                    height: 148px;
-                    object-fit: cover;
-                    border-radius: 148px;
-                    margin-bottom: 10px;
-                }
-
                 &-name {
                     font-size: 26px;
+                    margin-top: 20px;
                 }
 
                 &-mainText {

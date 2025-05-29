@@ -8,6 +8,7 @@ const Home = lazy(() => import('@/pages/Home'))
 const Publication = lazy(() => import('@/pages/Publication'))
 const Member = lazy(() => import('@/pages/Member'))
 const Seminar = lazy(() => import('@/pages/Seminar'))
+const Practice = lazy(() => import('@/pages/Practice'))
 
 const Routes = () => {
     const routes = useRoutes([
@@ -25,6 +26,10 @@ const Routes = () => {
             path: '/seminar',
             element: <Suspense fallback={<div>loading...</div>}><Seminar /></Suspense>
             // element: <Seminar/>
+        },
+        {
+            path: '/practice',
+            element: <Practice/>
         },
         {
             path: '/',

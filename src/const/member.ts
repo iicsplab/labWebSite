@@ -90,7 +90,7 @@ export const memberList = [
             }
         ]
     }, {
-        label: 'Graduated Students', // 此label名称如非必要，请勿修改（其他人员label可随意修改），如需修改请对应将页面结构代码一并修改
+        label: 'Alumni',
         member: [
             {
                 photo: xzj,
@@ -99,7 +99,7 @@ export const memberList = [
             },{
                 photo: mxh,
                 name: '马晓慧',
-                mainText: '毕业去向：****'
+                mainText: '毕业去向：山东省选调生'
             },{
                 photo: xzj,
                 name: '相志杰',

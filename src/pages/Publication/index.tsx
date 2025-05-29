@@ -3,6 +3,7 @@ import './index.scss'
 import ProjectCard from '@/components/ProjectCard'
 import { featuredProjectList } from '@/const/project'
 import { allProjectList } from '@/const/project'
+import { AnimatePresence, motion } from 'motion/react'
 
 export default class Publication extends Component {
     state = {
@@ -45,9 +46,30 @@ export default class Publication extends Component {
                             {
                                 featuredProjectList.map((item, index: number) => {
                                     return (
-                                        <div className={`publication-featured-wrapper-card${index < 2 ? '' : ' fadeIn'} ${(showFeatured || index < 2) ? '' : ' publication-featured-wrapper-hidden'}`} key={index}>
-                                            <ProjectCard {...item} />
-                                        </div>
+                                        // <div className={`publication-featured-wrapper-card${index < 2 ? '' : ' fadeIn'} ${(showFeatured || index < 2) ? '' : ' publication-featured-wrapper-hidden'}`} key={index}>
+                                        //     <ProjectCard {...item} />
+                                        // </div>
+                                        <AnimatePresence initial={false}>
+                                            {
+                                                (showFeatured || index < 2) && (
+                                                    <motion.div className={`publication-featured-wrapper-card`} key={index}
+                                                        variants={{
+                                                            opened: { opacity: 1, y: 0 },
+                                                            closed: { opacity: 0, y: '100px' }
+                                                        }}
+                                                        initial="closed"
+                                                        animate="opened"
+                                                        exit="closed"
+                                                        transition={{
+                                                            duration: 0.5,
+                                                            ease: 'linear'
+                                                        }}
+                                                    >
+                                                        <ProjectCard {...item} />
+                                                    </motion.div>
+                                                )
+                                            }
+                                        </AnimatePresence>
                                     )
                                 })
                             }

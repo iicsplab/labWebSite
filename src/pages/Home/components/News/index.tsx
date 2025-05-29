@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './index.scss'
 import { newsList as allNewsList } from '@/const/news'
+import CommonButton from '@/components/toolsComponent/CommonButton';
 
 const initCount = 6;
 export default class News extends Component {
@@ -34,7 +35,7 @@ export default class News extends Component {
     handleLoadMore = () => {
         const { showCount, eachIncrease } = this.state;
         let length = allNewsList.length;
-        if(showCount >= length) return;
+        if (showCount >= length) return;
 
         const targetCount = showCount + eachIncrease >= length ? length : showCount + eachIncrease;
         this.setState({
@@ -51,7 +52,7 @@ export default class News extends Component {
                     {
                         this.showNewsList.map((item: any, index: number) => {
                             return (
-                                <li className={`home-news-wrapper-li${(index+1>initShowCount) ? ' fadeIn' : ''}`} key={index}>
+                                <li className={`home-news-wrapper-li${(index + 1 > initShowCount) ? ' fadeIn' : ''}`} key={index}>
                                     <div className="home-news-wrapper-li-content poppins-font">
                                         <div className="home-news-wrapper-li-content-date poppins-font">
                                             {item.date}
@@ -72,7 +73,7 @@ export default class News extends Component {
                                                 })
                                             }
                                             {
-                                                item.optionButton?.map((buttonItem: {link?:string, label:string}, secondIndex: number) => {
+                                                item.optionButton?.map((buttonItem: { link?: string, label: string }, secondIndex: number) => {
                                                     return <a href={buttonItem.link} className="app-label poppins-font" key={index + "-button" + secondIndex}>
                                                         {buttonItem.label}
                                                     </a>
@@ -86,11 +87,11 @@ export default class News extends Component {
                     }
                 </ul>
                 <div className="home-news-showButton">
-                    <span className="home-news-showButton-text poppins-font" onClick={this.handleLoadMore}>
+                    <CommonButton handleOnClick={this.handleLoadMore}>
                         {
                             showCount >= allNewsList.length ? 'Nothing more' : 'Load More'
                         }
-                    </span>
+                    </CommonButton>
                 </div>
             </section>
         )

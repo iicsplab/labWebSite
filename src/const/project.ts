@@ -39,7 +39,7 @@ import project_LaserAdv from '@/assets/img/project-LaserAdv.jpg'
 import project_UltraComm from '@/assets/img/project-UltraComm.jpg'
 import project_earArray from '@/assets/img/project-earArray.jpg'
 
-
+// featuredProjectList会全部展示在首页面
 export const featuredProjectList = [
     {
         imgPath: project_echolight,
