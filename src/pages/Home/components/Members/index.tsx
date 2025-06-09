@@ -44,34 +44,36 @@ export default class Members extends Component {
         return (
             <section className='home-member'>
                 <h2 className='home-member-header header-font'>Members</h2>
-                <Swiper
-                    ref={this.swiperRef}
-                    modules={[EffectCoverflow, Autoplay]}
-                    effect="coverflow" // 不设置effect="coverflow"时为默认轮播模式
-                    grabCursor={true}
-                    // spaceBetween={50}
-                    slidesPerView={slidesPerView} // 这个值需要等于swiper的宽度除以每个swiper-slide的宽度（在css定义中为230px）
-                    // loop={true}
-                    // centeredSlides={true}
-                    autoplay={{ delay: 2300 }}
-                    coverflowEffect={{
-                        rotate: 23,
-                        stretch: 0,
-                        depth: 140,
-                        modifier: 1,
-                        slideShadows: false,
-                        scale: 1,
-                    }}
+                <div className='home-member-wrapper'>
+                    <Swiper
+                        ref={this.swiperRef}
+                        modules={[EffectCoverflow, Autoplay]}
+                        effect="coverflow" // 不设置effect="coverflow"时为默认轮播模式
+                        grabCursor={true}
+                        // spaceBetween={50}
+                        slidesPerView={slidesPerView} // 这个值需要等于swiper的宽度除以每个swiper-slide的宽度（在css定义中为230px）
+                        // loop={true}
+                        // centeredSlides={true}
+                        autoplay={{ delay: 2300 }}
+                        coverflowEffect={{
+                            rotate: 23,
+                            stretch: 0,
+                            depth: 140,
+                            modifier: 1,
+                            slideShadows: false,
+                            scale: 1,
+                        }}
                     // onSlideChange={() => console.log('slide change')}
                     // onSwiper={(swiper) => swiper.autoplay.start()}
-                >
-                    {members.map((item, index) => (
-                        <SwiperSlide key={index}>
-                            <img src={item.photo} alt="" />
-                            <p>{item.name}</p>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                    >
+                        {members.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <img src={item.photo} alt="" />
+                                <p>{item.name}</p>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
             </section>
         )
     }

@@ -2,7 +2,8 @@ import { Component } from 'react'
 import './index.scss'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import LOGO from '@/assets/img/logo-demo.png'
+// import LOGO from '@/assets/img/logo-demo.png'
+import LOGO from '@/assets/img/iic_logo.png'
 import { IProps, IState } from './types'
 
 class Top extends Component<IProps, IState> {

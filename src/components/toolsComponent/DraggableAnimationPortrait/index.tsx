@@ -8,6 +8,8 @@ export default function DraggableAnimationPortrait(props: {
     width: string,
     height: string,
     href?: string,
+    tip?: string,
+    tipColor?: string,
 }) {
     // x和y为：鼠标拖拽的偏移量
     const x = useMotionValue(0);
@@ -24,7 +26,7 @@ export default function DraggableAnimationPortrait(props: {
         return visibleTip ? 999 : 0;
     }, [visibleTip])
 
-    const { width, height, alt = 'Portrait', href } = props;
+    const { width, height, alt = 'Portrait', href, tip, tipColor } = props;
 
     const MainBody = function (isLink: boolean = false) {
         return (
@@ -68,8 +70,11 @@ export default function DraggableAnimationPortrait(props: {
                                     repeat: Infinity,
                                 }
                             }}
+                            style={{
+                                color: tipColor || undefined
+                            }}
                         >
-                            住手!
+                            {tip || undefined}
                         </motion.div>
                     )
                 }

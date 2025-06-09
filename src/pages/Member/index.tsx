@@ -20,7 +20,10 @@ export default function Member() {
                                 {item.member.map((each: { [prop: string]: any }, _index) => {
                                     return <li className='member-main-ul-li' key={each.name + _index}>
 
-                                        <DraggableAnimationPortrait src={each.photo} width='148px' height='148px' href={each.link || undefined} />
+                                        <DraggableAnimationPortrait src={each.photo} width='148px' height='148px'
+                                            href={each.link || undefined}
+                                            tip={each.tip || undefined} tipColor={each.tipColor || undefined}
+                                        />
 
                                         <h3 className='member-main-ul-li-name'>
                                             {each.link ? <a href={each.link}>{each.name}</a> : each.name}
